@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject_Profile // Researcher HUD</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --panel-bg: #0a0a0a;
+            --hud-accent: #00ffcc;
+            --hud-dim: rgba(0, 255, 204, 0.3);
+            --text-main: #e0e0e0;
+            --font-stack: 'Courier New', Courier, monospace;
+        }
+        /* Add this below your :root variables */
+        body.light-mode {
+            --bg-color: #f0f4f8;
+            --panel-bg: #ffffff;
+            --hud-accent: #0066cc;
+            --hud-dim: rgba(0, 102, 204, 0.2);
+            --text-main: #111111;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg-color); color: var(--text-main); font-family: var(--font-stack); padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto;}
+        
+        .panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--hud-dim);
+            padding: 30px;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        /* HUD Corner Accents */
+        .panel::before, .panel::after {
+            content: ''; position: absolute; width: 15px; height: 15px; border: 2px solid var(--hud-accent);
+        }
+        .panel::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .panel::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        h1 { color: var(--hud-accent); border-bottom: 1px solid var(--hud-accent); padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; font-size: 1.5em;}
+        h3 { color: var(--hud-accent); margin-top: 25px; margin-bottom: 10px; border-bottom: 1px dashed var(--hud-dim); display: inline-block;}
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        a.nav-btn {
+            display: inline-block; color: var(--hud-accent); text-decoration: none; border: 1px solid var(--hud-accent); padding: 5px 15px; margin-bottom: 10px;
+        }
+        a.nav-btn:hover { background: var(--hud-dim); color: #fff; }
+        
+        ul { margin-left: 20px; margin-bottom: 20px; }
+        
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="nav-btn">< INIT_RETURN_SEQUENCE</a>
+
+    <div class="panel">
+        <h1>> Full_Subject_Profile</h1>
+        
+        <p><strong>ID_TAG:</strong> Dr. Jane Doe</p>
+        <p><strong>LOCATION:</strong> Sector 4 / Earth</p>
+        <p><strong>CONTACT:</strong> jane.doe@horizonlabs.net</p>
+        
+        <br>
+        <p><strong>// BIO_LOG_EXPANDED</strong></p>
+        <p>I am a dedicated researcher exploring the extreme boundaries of computation. My primary focus lies at the intersection of neural networks and quantum state optimization. By simulating environments where classical logic breaks down, I aim to build the architectures that will power the next generation of artificial intelligence.</p>
+
+        <div class="grid-2">
+            <div>
+                <h3>// ACADEMIC_HISTORY</h3>
+                <ul>
+                    <li><strong>Ph.D. in Quantum Physics</strong><br>MIT (2020 - 2024)</li>
+                    <li><strong>M.S. in Computer Science</strong><br>Stanford University (2018 - 2020)</li>
+                    <li><strong>B.S. in Applied Mathematics</strong><br>University of Tokyo (2014 - 2018)</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>// TECHNICAL_SKILLS</h3>
+                <ul>
+                    <li>Languages: Python, C++, Julia, Rust</li>
+                    <li>Frameworks: Qiskit, PyTorch, TensorFlow</li>
+                    <li>Systems: Linux (Debian/Arch), Slurm Workload Manager</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        if (localStorage.getItem('hud-theme') === 'light') {
+            document.body.classList.add('light-mode');
+        };
+    </script>
+
+</body>
+
+</html>

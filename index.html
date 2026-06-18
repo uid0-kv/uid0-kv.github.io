@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researcher HUD // Main System</title>
+    <style>
+        /* Default Dark Mode Variables */
+        :root {
+            --bg-color: #050505;
+            --panel-bg: #0a0a0a;
+            --hud-accent: #00ffcc;
+            --hud-dim: rgba(0, 255, 204, 0.3);
+            --text-main: #e0e0e0;
+            --font-stack: 'Courier New', Courier, monospace;
+        }
+
+        /* Light Mode Variables */
+        body.light-mode {
+            --bg-color: #f0f4f8;
+            --panel-bg: #ffffff;
+            --hud-accent: #0066cc; /* Deep blue for contrast on light bg */
+            --hud-dim: rgba(0, 102, 204, 0.2);
+            --text-main: #111111;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            padding: 20px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px solid var(--hud-accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            text-transform: uppercase;
+        }
+        
+        .sys-status { 
+            color: var(--hud-accent); 
+            font-size: 0.9em; 
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .blink-text { animation: blink 2s infinite; }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            background: transparent;
+            color: var(--hud-accent);
+            border: 1px solid var(--hud-accent);
+            padding: 2px 8px;
+            font-family: inherit;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: 0.2s;
+        }
+        #theme-toggle:hover {
+            background: var(--hud-dim);
+        }
+
+        /* Sticky Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px dashed var(--hud-dim);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+        nav a { padding: 5px 15px; border: 1px solid var(--hud-accent); text-transform: uppercase; font-size: 0.9em; }
+        nav a:hover { background-color: var(--hud-dim); color: var(--text-main); text-shadow: none; }
+
+        .layout-container { display: flex; flex-direction: column; gap: 30px; }
+
+        /* Panel Styling */
+        .panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--hud-dim);
+            padding: 20px;
+            position: relative;
+            scroll-margin-top: 80px;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .panel:hover {
+            box-shadow: 0 0 15px var(--hud-dim);
+            border-color: var(--hud-accent);
+        }
+
+        /* HUD Corner Accents */
+        .panel::before, .panel::after { content: ''; position: absolute; width: 15px; height: 15px; border: 2px solid var(--hud-accent); }
+        .panel::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .panel::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        h2 { color: var(--hud-accent); font-size: 1.2em; margin-bottom: 15px; text-transform: uppercase; border-bottom: 1px dashed var(--hud-dim); display: inline-block; }
+        
+        a { color: var(--hud-accent); text-decoration: none; transition: 0.2s ease; }
+        a:hover { color: var(--text-main); text-shadow: 0 0 5px var(--hud-accent); }
+        ul { list-style-type: square; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        .desc { display: block; font-size: 0.85em; opacity: 0.7; margin-top: 2px; }
+
+        /* Specific Sections */
+        .about-section { display: flex; gap: 20px; align-items: center; }
+        .photo-placeholder {
+            width: 120px; height: 120px; flex-shrink: 0; border: 1px solid var(--hud-accent);
+            display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.8em; color: var(--hud-accent);
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--hud-dim) 10px, var(--hud-dim) 11px);
+        }
+        
+        .btn-link { display: inline-block; margin-top: 10px; padding: 5px 15px; border: 1px solid var(--hud-accent); font-size: 0.9em; text-transform: uppercase; }
+        .btn-link:hover { background: var(--hud-dim); color: var(--text-main); }
+        
+        .sys-log { opacity: 0.6; font-size: 0.9em; }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        @media (max-width: 768px) { .about-section { flex-direction: column; align-items: flex-start; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>> USER_PROFILE</h1>
+            <span>ID: Dr. Jane Doe // Primary Researcher</span>
+        </div>
+        <div class="sys-status">
+            <button id="theme-toggle">[ MODE: DARK ]</button>
+            <span class="blink-text">[ SYSTEM: ONLINE ]</span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#about">> ABOUT</a>
+        <a href="#blogs">> LOGS</a>
+        <a href="#projects">> DIRECTIVES</a>
+        <a href="#courses">> TRAINING</a>
+        <a href="#publications">> PUBLICATIONS</a>
+        <a href="#fun">> MISC_DATA</a>
+    </nav>
+
+    <div class="layout-container">
+        
+        <div id="about" class="panel about-section">
+            <div class="photo-placeholder">[ IMG_REQ ]</div>
+            <div class="about-details">
+                <h2>> Subject_Summary</h2>
+                <p><strong>Clearance:</strong> Level 4 // Horizon Research Labs</p>
+                <p><strong>Specialization:</strong> Quantum Computing & AI</p>
+                <a href="about.html" class="btn-link">EXECUTE: VIEW_FULL_PROFILE</a>
+            </div>
+        </div>
+
+        <div id="blogs" class="panel">
+            <h2>> Research_Logs (Blogs)</h2>
+            <ul>
+                <li><a href="blogs/blog-01.html">LOG_001: The Future of Qubits</a><span class="desc">Thoughts on the recent breakthrough in error correction.</span></li>
+                <li><a href="#">LOG_002: Conference Notes</a><span class="desc">Key takeaways from the Global Tech Symposium 2026.</span></li>
+            </ul>
+        </div>
+
+        <div id="projects" class="panel">
+            <h2>> Active_Directives (Projects)</h2>
+            <ul>
+                <li><a href="projects/project-01.html">PRJ_ALPHA: Quantum Node</a><span class="desc">A simulation framework for multi-node quantum routing.</span></li>
+            </ul>
+        </div>
+
+        <div id="courses" class="panel">
+            <h2>> Training_Modules (Courses)</h2>
+            <ul>
+                <li><strong>CS800:</strong> Advanced Machine Learning (Completed)</li>
+                <li><strong>PHY505:</strong> Intro to Quantum Mechanics (Completed)</li>
+            </ul>
+        </div>
+
+        <div id="publications" class="panel">
+            <h2>> Official_Publications</h2>
+            <p class="sys-log">[ AWAITING_DATA // No registered uploads found in current database query. ]</p>
+        </div>
+
+        <div id="fun" class="panel">
+            <h2>> Telemetry & Misc_Data</h2>
+            <p><strong>Status:</strong> Personal bio-metrics and hardware logs are being tracked on a separate subsystem.</p>
+            <a href="fun.html" class="btn-link">EXECUTE: VIEW_TELEMETRY</a>
+        </div>
+
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved user preference
+        const currentTheme = localStorage.getItem('hud-theme');
+        if (currentTheme === 'light') {
+            body.classList.add('light-mode');
+            toggleBtn.textContent = '[ MODE: LIGHT ]';
+        }
+
+        // Toggle functionality
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('hud-theme', 'light');
+                toggleBtn.textContent = '[ MODE: LIGHT ]';
+            } else {
+                localStorage.setItem('hud-theme', 'dark');
+                toggleBtn.textContent = '[ MODE: DARK ]';
+            }
+        });
+
+        if (localStorage.getItem('hud-theme') === 'light') {
+        document.body.classList.add('light-mode');
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRJ_ALPHA // Researcher HUD</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --panel-bg: #0a0a0a;
+            --hud-accent: #00ffcc;
+            --hud-dim: rgba(0, 255, 204, 0.3);
+            --text-main: #e0e0e0;
+            --font-stack: 'Courier New', Courier, monospace;
+        }
+
+        /* Add this below your :root variables */
+        body.light-mode {
+            --bg-color: #f0f4f8;
+            --panel-bg: #ffffff;
+            --hud-accent: #0066cc;
+            --hud-dim: rgba(0, 102, 204, 0.2);
+            --text-main: #111111;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg-color); color: var(--text-main); font-family: var(--font-stack); padding: 20px; line-height: 1.6; }
+        
+        .panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--hud-dim);
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--hud-accent); border-bottom: 1px solid var(--hud-accent); padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; }
+        h3 { color: var(--hud-accent); margin-top: 20px; margin-bottom: 10px; }
+        
+        .tech-stack { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tech-badge { background: var(--hud-dim); color: #fff; padding: 2px 8px; font-size: 0.8em; border: 1px solid var(--hud-accent); }
+        
+        a.nav-btn {
+            display: inline-block;
+            color: var(--hud-accent);
+            text-decoration: none;
+            border: 1px solid var(--hud-accent);
+            padding: 5px 15px;
+            margin-bottom: 20px;
+        }
+        a.nav-btn:hover { background: var(--hud-dim); color: #fff; }
+        ul { margin-left: 20px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <a href="../index.html" class="nav-btn">< INIT_RETURN_SEQUENCE</a>
+
+    <div class="panel">
+        <h1>> PRJ_ALPHA: Quantum Node</h1>
+        
+        <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Qiskit</span>
+            <span class="tech-badge">C++</span>
+        </div>
+
+        <h3>// OVERVIEW</h3>
+        <p>A simulation framework designed to model multi-node quantum routing protocols over long-distance fiber networks. This project aims to find the most efficient pathways for entanglement distribution.</p>
+
+        <h3>// KEY FEATURES</h3>
+        <ul>
+            <li>Real-time decoherence modeling.</li>
+            <li>Customizable network topologies.</li>
+            <li>Integration with standard benchmarking datasets.</li>
+        </ul>
+
+        <h3>// STATUS</h3>
+        <p>Phase 2 Testing: <strong>ACTIVE</strong></p>
+    </div>
+    <script>
+        if (localStorage.getItem('hud-theme') === 'light') {
+            document.body.classList.add('light-mode');
+        };
+    </script>
+
+</body>
+</html>

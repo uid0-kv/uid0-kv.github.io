@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemetry // Researcher HUD</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --panel-bg: #0a0a0a;
+            --hud-accent: #00ffcc;
+            --hud-dim: rgba(0, 255, 204, 0.3);
+            --text-main: #e0e0e0;
+            --font-stack: 'Courier New', Courier, monospace;
+        }
+
+        body.light-mode {
+            --bg-color: #f0f4f8;
+            --panel-bg: #ffffff;
+            --hud-accent: #0066cc;
+            --hud-dim: rgba(0, 102, 204, 0.2);
+            --text-main: #111111;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg-color); color: var(--text-main); font-family: var(--font-stack); padding: 20px; line-height: 1.6; max-width: 900px; margin: 0 auto; transition: 0.3s; }
+        
+        .panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--hud-dim);
+            padding: 30px;
+            margin-top: 20px;
+            position: relative;
+            transition: 0.3s;
+        }
+        
+        .panel::before, .panel::after { content: ''; position: absolute; width: 15px; height: 15px; border: 2px solid var(--hud-accent); }
+        .panel::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .panel::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        h1 { color: var(--hud-accent); border-bottom: 1px solid var(--hud-accent); padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; }
+        h3 { color: var(--hud-accent); margin-bottom: 15px; border-bottom: 1px dashed var(--hud-dim); display: inline-block; text-transform: uppercase;}
+        
+        .nav-btn { display: inline-block; color: var(--hud-accent); text-decoration: none; border: 1px solid var(--hud-accent); padding: 5px 15px; margin-bottom: 10px; transition: 0.2s;}
+        .nav-btn:hover { background: var(--hud-dim); color: var(--text-main); }
+        
+        /* Grid Layout for Fun Modules */
+        .fun-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .data-row { display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid #333; padding-bottom: 4px;}
+        body.light-mode .data-row { border-bottom: 1px solid #ddd; }
+        
+        .progress-bar { width: 100%; height: 15px; border: 1px solid var(--hud-accent); margin-top: 5px; position: relative;}
+        .progress-fill { height: 100%; background-color: var(--hud-dim); width: 80%; }
+
+        /* Easter Egg Button */
+        .danger-btn { 
+            background: transparent; color: #ff3333; border: 1px solid #ff3333; padding: 10px 20px; cursor: pointer; font-family: var(--font-stack); font-weight: bold; width: 100%; margin-top: 20px;
+        }
+        .danger-btn:hover { background: rgba(255, 51, 51, 0.2); }
+
+        @media (max-width: 768px) { .fun-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="nav-btn">< INIT_RETURN_SEQUENCE</a>
+
+    <div class="panel">
+        <h1>> Telemetry & Misc_Data</h1>
+        
+        <div class="fun-grid">
+            <div>
+                <h3>// System_Diagnostics</h3>
+                <div class="data-row"><span>Current_Uptime:</span> <span>14hrs</span></div>
+                <div class="data-row"><span>Compile_Errors:</span> <span>42</span></div>
+                <div class="data-row"><span>Papers_Rejected:</span> <span>3</span></div>
+                
+                <div style="margin-top: 15px;">
+                    <span>Caffeine_Level: (OPTIMAL)</span>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                </div>
+            </div>
+
+            <div>
+                <h3>// Media_Inputs</h3>
+                <p><strong>Audio_Stream:</strong></p>
+                <p style="opacity: 0.7; margin-bottom: 10px;">> Lo-Fi Synthwave / Darknet Radio</p>
+                
+                <p><strong>Text_Input:</strong></p>
+                <p style="opacity: 0.7; margin-bottom: 10px;">> "Neuromancer" by William Gibson</p>
+                
+                <p><strong>Signal_Intercept:</strong></p>
+                <p style="opacity: 0.7;">> Lex Fridman Podcast (Ep. 402)</p>
+            </div>
+
+            <div>
+                <h3>// Hardware_Config</h3>
+                <ul style="padding-left: 20px; opacity: 0.8;">
+                    <li style="margin-bottom: 10px;">Custom Split Mechanical Keyboard<br>(Corne, Boba U4T switches)</li>
+                    <li style="margin-bottom: 10px;">Local LLM Node<br>(Raspberry Pi Cluster)</li>
+                    <li>Optics: 130mm Reflector Telescope<br>(Current target: Orion Nebula)</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>// Terminal_Overrides</h3>
+                <p style="opacity: 0.6; font-size: 0.9em; margin-bottom: 15px;">"Somewhere, something incredible is waiting to be known." - Carl Sagan</p>
+                
+                <button class="danger-btn" onclick="alert('WARNING: Quantum state destabilized. Reversing polarity...')">[ DO_NOT_CLICK ]</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Check theme on load to ensure smooth transition from index.html
+        if (localStorage.getItem('hud-theme') === 'light') {
+            document.body.classList.add('light-mode');
+        };
+    </script>
+</body>
+
+</html>
