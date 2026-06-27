@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latches and FlipFlops</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="site-name">[Krish Vedak]</div>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">dark mode</button>
+  </div>
+
+  <main>
+    <a class="back-link" href="../index.html#blogs">&larr; Back to blogs</a>
+
+    <div class="eyebrow">Blog</div>
+    <h1 style="margin-top:0.4rem;">Latches, FlipFlops, Transmission Gate Implementation and Variations</h1>
+    <div class="mono" style="font-size:0.8rem; color:var(--text-dim); margin-bottom:1.6rem;">
+      2026-06-27 · Learning · <span class="tag">Meta</span><span class="tag">Writing</span>
+    </div>
+
+    <p>
+    Motivation: When I was understanding this topic, I came across several resources and terminologies 
+    that mixed concepts with each other, making it difficult to comprehend the core logic. For instance 
+    enable is actually a signal driven by the "clock", as we'll see later. Terms like active low, active high, 
+    reset, and several others are fundamentally simple, but that's where many face difficulties, including me.
+    </p>
+    
+    <p>
+    Transmission gates and tristate buffers play a major role in digital circuits design. They have their own 
+    advantages and disadvantages, and as a person trying to understand it for the first time, I struggled to 
+    find a good enough explanation for these topics.
+    </p>
+
+    <p>
+    This blog covers my understanding of these topics along with examples.
+    </p>
+
+    
+    <h3>S-R Latch</h3>
+
+    <p>
+    The S-R (Set-Reset) latch is one of the simplest sequential logic circuits and the most basic memory element in
+    digital electronics. Unlike combinational circuits, whose outputs depend only on the current inputs, an S-R latch
+    can store one bit of information by remembering its previous state. Many more complex memory elements, such as
+    D latches and flip-flops, are derived from this fundamental circuit.
+    </p>
+
+    <p>
+    An S-R latch can be constructed using either NAND or NOR gates, both of which are <i>universal gates</i> capable
+    of implementing any Boolean function. Each implementation has its own advantages and disadvantages. In practice,
+    NAND-based implementations are more common because NAND gates are generally more efficient in many logic families.
+    Older TTL devices often implemented NAND gates with better speed and drive characteristics than equivalent NOR
+    gates, and modern CMOS standard-cell libraries also make extensive use of NAND gates. Consequently, many practical
+    digital circuits are built around NAND-based latch implementations.
+    </p>
+
+    <p>
+    One important distinction between the two implementations is that a NAND-based S-R latch is an
+    <b>active-low</b> circuit, whereas a NOR-based S-R latch is an <b>active-high</b> circuit.
+    To understand what this means, we first need to understand the concepts of active-high and active-low signals.
+    </p>
+
+    <p>
+    <b>Active-high</b> and <b>active-low</b> describe which logic level causes a signal to perform its intended
+    function. A signal is said to be <b>active-high</b> if its intended action occurs when the signal is at logic
+    <b>1</b>. Conversely, a signal is <b>active-low</b> if its intended action occurs when the signal is at logic
+    <b>0</b>.
+    </p>
+
+    <p>
+    <b>Example:</b><br><br>
+
+    Forget latches for a moment and consider a simple light switch controlling a light bulb. Let us associate the
+    following logic values with the switch and bulb states:
+    </p>
+
+    <p>
+    Switch OFF &hArr; Logic 0 &nbsp;&nbsp;&nbsp;&nbsp;
+    Switch ON &hArr; Logic 1
+    </p>
+
+    <p>
+    Bulb OFF &hArr; Logic 0 &nbsp;&nbsp;&nbsp;&nbsp;
+    Bulb ON &hArr; Logic 1
+    </p>
+
+    <p>
+    Suppose the intended function of the switch is to <b>turn the bulb on</b>. The intended action occurs when the
+    switch is in the ON position (logic 1). Therefore, this is an <b>active-high</b> control signal.
+    </p>
+
+    <p>
+    Now suppose we redefine the intended function to be <b>turning the bulb off</b>, while leaving the switch states
+    unchanged. The intended action now occurs when the switch is OFF (logic 0). Under this convention, the same
+    switch behaves as an <b>active-low</b> control signal.
+    </p>
+
+    <p>
+    The important observation is that <i>nothing about the hardware has changed</i>. Only our definition of the
+    signal's intended function has changed. Whether a signal is active-high or active-low depends on:
+    </p>
+
+    <ul>
+        <li>the intended function of the signal,</li>
+        <li>which logic level (0 or 1) represents each state, and</li>
+        <li>the naming convention used for the signal (for example, <code>RESET</code>,
+            <code>RESET&#773;</code>, or <code>RESET_N</code>).</li>
+    </ul>
+
+    <p>
+    Personally, I find it more useful to remember the behaviour of a circuit than to memorize every active-low naming
+    convention. Once you begin working with more complex circuits, such as D latches and D flip-flops, understanding
+    how the circuit operates becomes far more valuable than remembering whether a particular input is active-high or
+    active-low. Nevertheless, these conventions become extremely important when reading datasheets, debugging digital
+    circuits, or interpreting timing diagrams and waveform traces.
+    </p>
+
+    <p>
+        <div class="photo-frame">
+          <img src="assets/srlatch.jpeg" alt="SR Latch" id="SR Latch">
+        </div>
+    </p>
+
+    <p>
+        As you can see, considering S as our driving port and Q as our main output, we can have both Active High and 
+        Active Low implementations by just swapping the output port names. Given NAND is considered to be an Active Low 
+        implementation, we have the bottom right implementation for it. Similarly, for NOR we have the top left 
+        implementation.
+    </p>
+  </main>
+
+  <footer>[Your Name] · Research page</footer>
+
+  <div class="easter-egg-wrap">
+    <button id="easter-egg-btn" class="easter-egg-btn" type="button">don't click me.</button>
+  </div>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>
