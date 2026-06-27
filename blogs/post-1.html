@@ -17,26 +17,25 @@
     <a class="back-link" href="../index.html#blogs">&larr; Back to blogs</a>
 
     <div class="eyebrow">Blog</div>
-    <h1 style="margin-top:0.4rem;">Latches, FlipFlops, Transmission Gate Implementation and Variations</h1>
+    <h1 style="margin-top:0.4rem;">S-R Latches and Active Highs/Lows</h1>
     <div class="mono" style="font-size:0.8rem; color:var(--text-dim); margin-bottom:1.6rem;">
       2026-06-27 · Learning · <span class="tag">Meta</span><span class="tag">Writing</span>
     </div>
 
     <p>
     Motivation: When I was understanding this topic, I came across several resources and terminologies 
-    that mixed concepts with each other, making it difficult to comprehend the core logic. For instance 
-    enable is actually a signal driven by the "clock", as we'll see later. Terms like active low, active high, 
-    reset, and several others are fundamentally simple, but that's where many face difficulties, including me.
+    that mixed concepts with each other, making it difficult to comprehend the core logic. 
+    Terms like active low, active high, active high reset, active low enable
+    and several others are fundamentally simple, but that's where I face the difficulty.
     </p>
     
     <p>
-    Transmission gates and tristate buffers play a major role in digital circuits design. They have their own 
-    advantages and disadvantages, and as a person trying to understand it for the first time, I struggled to 
-    find a good enough explanation for these topics.
+    I was facing this confusion: why is NAND SR latch active-low when S and R are still called S and R and the 
+    circuit looks structurally similar to the NOR version.
     </p>
 
     <p>
-    This blog covers my understanding of these topics along with examples.
+    This blog covers my understanding of that confusion and what I found as I resolved it.
     </p>
 
     
@@ -120,9 +119,7 @@
     </p>
 
     <p>
-        <div class="photo-frame">
           <img src="assets/srlatch.jpeg" alt="SR Latch" id="SR Latch">
-        </div>
     </p>
 
     <p>
