@@ -1,0 +1,48 @@
+{
+  "intro": {
+    "name": "Krish Vedak",
+    "field": "Computer Architecture & VLSI Design",
+    "tagline": "Thinking about how silicon turns ideas into computation.",
+    "bio": [
+      "Hi, I'm Krish. I study computer architecture and VLSI design, and I'm curious about what happens between a line of code and the transistors that run it.",
+      "This site is my notebook: what I'm interested in, what I've learned, what I've built, and things I write to understand them better."
+    ],
+    "links": [
+      {"label": "Email", "url": "mailto:you@example.com"},
+      {"label": "GitHub", "url": "https://github.com/your-username"},
+      {"label": "LinkedIn", "url": "https://www.linkedin.com/in/your-handle"},
+      {"label": "CV (PDF)", "url": "assets/cv.pdf"}
+    ]
+  },
+  "interests": [
+    {"title": "Processor microarchitecture", "text": "Pipelines, out-of-order execution, branch prediction and the trade-offs behind them."},
+    {"title": "Digital VLSI design", "text": "RTL to layout: synthesis, timing closure, and physical design flows."},
+    {"title": "Memory systems", "text": "Caches, coherence and bandwidth, where performance is often won or lost."},
+    {"title": "Low-power design", "text": "Making circuits efficient through clock gating, voltage scaling and smarter design choices."},
+    {"title": "Hardware accelerators", "text": "Domain-specific designs for machine learning and signal processing."},
+    {"title": "Open-source hardware", "text": "RISC-V and open EDA tools that make chip design more accessible."}
+  ],
+  "courses": [
+    {"group": "University", "items": [
+      {"name": "Digital Logic Design", "provider": "Your University", "year": "2024"},
+      {"name": "Computer Organization and Architecture", "provider": "Your University", "year": "2025"},
+      {"name": "VLSI Design", "provider": "Your University", "year": "2025"}
+    ]},
+    {"group": "Online", "items": [
+      {"name": "Computer Architecture", "provider": "Coursera", "year": "2025"},
+      {"name": "Digital Systems Design with HDL", "provider": "edX", "year": "2024"}
+    ]}
+  ],
+  "projects": [
+    {"title": "5-stage RISC-V pipelined core", "text": "A pipelined RV32I processor in Verilog with hazard detection and forwarding, verified with a self-checking testbench.",
+     "tags": ["Verilog", "RISC-V", "Verification"], "links": [{"label": "Code", "url": "https://github.com/your-username/riscv-core"}]},
+    {"title": "Cache simulator", "text": "A configurable set-associative cache simulator for comparing replacement policies across memory traces.",
+     "tags": ["C++", "Memory systems"], "links": [{"label": "Code", "url": "https://github.com/your-username/cache-sim"}]},
+    {"title": "Inverter chain layout", "text": "Designed and simulated an inverter chain, characterising delay and power across process corners.",
+     "tags": ["Layout", "SPICE"], "links": []}
+  ],
+  "internships": [
+    {"role": "Hardware Design Intern", "org": "Company Name", "dates": "Jun 2025 – Aug 2025",
+     "points": ["Wrote and verified RTL for a small peripheral block.", "Cut simulation runtime by improving the regression setup.", "Documented the block for the wider team."]}
+  ]
+}
