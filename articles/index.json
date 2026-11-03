@@ -1,0 +1,5 @@
+[
+  {"slug": "why-pipelining-works", "title": "Why pipelining works", "date": "2026-10-15",
+   "summary": "A short note on how overlapping instructions raises throughput without making any single instruction faster.",
+   "tags": ["Architecture", "Pipelining"]}
+]
