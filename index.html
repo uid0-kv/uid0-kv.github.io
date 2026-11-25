@@ -15,12 +15,19 @@
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="#top">Krish Vedak</a>
+<button class="menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="true" aria-controls="sidebar"><span></span><span></span><span></span></button>
+<aside class="sidebar" id="sidebar" aria-label="Site menu">
+  <a class="brand" href="#intro">Krish Vedak<small>Computer Architecture &amp; VLSI</small></a>
   <nav aria-label="Sections">
-    <a href="#interests">Interests</a><a href="#courses">Courses</a><a href="#projects">Projects</a><a href="#internships">Internships</a><a href="#articles">Articles</a>
+    <a href="#intro" data-s="intro"><i>01</i><span>About</span></a>
+    <a href="#interests" data-s="interests"><i>02</i><span>Interests</span></a>
+    <a href="#courses" data-s="courses"><i>03</i><span>Courses</span></a>
+    <a href="#projects" data-s="projects"><i>04</i><span>Projects</span></a>
+    <a href="#internships" data-s="internships"><i>05</i><span>Internships</span></a>
+    <a href="#articles" data-s="articles"><i>06</i><span>Articles</span></a>
   </nav>
-</header>
+</aside>
+<div class="scrim" id="scrim"></div>
 <main id="top">
   <section class="hero" id="intro"></section>
   <section id="interests"><h2>Research interests</h2><div id="interests-list" class="grid"></div></section>
@@ -30,6 +37,7 @@
   <section id="articles"><h2>Articles</h2><div id="articles-list"></div></section>
 </main>
 <footer><p>© <span id="yr"></span> Krish Vedak. Built with plain HTML, hosted on GitHub Pages.</p></footer>
+<script src="assets/menu.js"></script>
 <script src="assets/main.js"></script>
 </body>
 </html>
