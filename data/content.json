@@ -8,41 +8,264 @@
       "This site is my notebook: what I'm interested in, what I've learned, what I've built, and things I write to understand them better."
     ],
     "links": [
-      {"label": "Email", "url": "mailto:you@example.com"},
-      {"label": "GitHub", "url": "https://github.com/your-username"},
-      {"label": "LinkedIn", "url": "https://www.linkedin.com/in/your-handle"},
-      {"label": "CV (PDF)", "url": "assets/cv.pdf"}
+      {
+        "label": "Email",
+        "url": "mailto:you@example.com"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/your-username"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/your-handle"
+      },
+      {
+        "label": "CV (PDF)",
+        "url": "assets/cv.pdf"
+      }
     ]
   },
   "interests": [
-    {"title": "Processor microarchitecture", "text": "Pipelines, out-of-order execution, branch prediction and the trade-offs behind them."},
-    {"title": "Digital VLSI design", "text": "RTL to layout: synthesis, timing closure, and physical design flows."},
-    {"title": "Memory systems", "text": "Caches, coherence and bandwidth, where performance is often won or lost."},
-    {"title": "Low-power design", "text": "Making circuits efficient through clock gating, voltage scaling and smarter design choices."},
-    {"title": "Hardware accelerators", "text": "Domain-specific designs for machine learning and signal processing."},
-    {"title": "Open-source hardware", "text": "RISC-V and open EDA tools that make chip design more accessible."}
+    {
+      "title": "Processor microarchitecture",
+      "text": "Pipelines, out-of-order execution, branch prediction and the trade-offs behind them."
+    },
+    {
+      "title": "Digital VLSI design",
+      "text": "RTL to layout: synthesis, timing closure, and physical design flows."
+    },
+    {
+      "title": "Memory systems",
+      "text": "Caches, coherence and bandwidth, where performance is often won or lost."
+    },
+    {
+      "title": "Low-power design",
+      "text": "Making circuits efficient through clock gating, voltage scaling and smarter design choices."
+    },
+    {
+      "title": "Hardware accelerators",
+      "text": "Domain-specific designs for machine learning and signal processing."
+    },
+    {
+      "title": "Open-source hardware",
+      "text": "RISC-V and open EDA tools that make chip design more accessible."
+    }
   ],
   "courses": [
-    {"group": "University", "items": [
-      {"name": "Digital Logic Design", "provider": "Your University", "year": "2024"},
-      {"name": "Computer Organization and Architecture", "provider": "Your University", "year": "2025"},
-      {"name": "VLSI Design", "provider": "Your University", "year": "2025"}
-    ]},
-    {"group": "Online", "items": [
-      {"name": "Computer Architecture", "provider": "Coursera", "year": "2025"},
-      {"name": "Digital Systems Design with HDL", "provider": "edX", "year": "2024"}
-    ]}
+    {
+      "group": "Electrical",
+      "items": [
+        {
+          "name": "Advanced Computer Architecture",
+          "provider": "CS683",
+          "year": ""
+        },
+        {
+          "name": "VLSI Design",
+          "provider": "EE671",
+          "year": ""
+        },
+        {
+          "name": "Microprocessors",
+          "provider": "EE309",
+          "year": ""
+        },
+        {
+          "name": "Microprocessors Lab",
+          "provider": "EE337",
+          "year": ""
+        },
+        {
+          "name": "Digital Circuits",
+          "provider": "",
+          "year": ""
+        },
+        {
+          "name": "Digital Circuits Lab",
+          "provider": "EE214",
+          "year": ""
+        },
+        {
+          "name": "Digital Systems",
+          "provider": "EE224",
+          "year": ""
+        },
+        {
+          "name": "Signal Processing 1",
+          "provider": "EE229",
+          "year": ""
+        },
+        {
+          "name": "Probability and Random Processes",
+          "provider": "",
+          "year": ""
+        },
+        {
+          "name": "Analog Circuits",
+          "provider": "",
+          "year": ""
+        },
+        {
+          "name": "Analog Circuits Lab",
+          "provider": "",
+          "year": ""
+        }
+      ]
+    },
+    {
+      "group": "Math & Physics",
+      "items": [
+        {
+          "name": "Calculus",
+          "provider": "",
+          "year": ""
+        },
+        {
+          "name": "Linear Algebra & Differential Equations",
+          "provider": "",
+          "year": ""
+        },
+        {
+          "name": "Intro. to Classical and Quantum Physics",
+          "provider": "",
+          "year": ""
+        }
+      ]
+    }
   ],
   "projects": [
-    {"title": "5-stage RISC-V pipelined core", "text": "A pipelined RV32I processor in Verilog with hazard detection and forwarding, verified with a self-checking testbench.",
-     "tags": ["Verilog", "RISC-V", "Verification"], "links": [{"label": "Code", "url": "https://github.com/your-username/riscv-core"}]},
-    {"title": "Cache simulator", "text": "A configurable set-associative cache simulator for comparing replacement policies across memory traces.",
-     "tags": ["C++", "Memory systems"], "links": [{"label": "Code", "url": "https://github.com/your-username/cache-sim"}]},
-    {"title": "Inverter chain layout", "text": "Designed and simulated an inverter chain, characterising delay and power across process corners.",
-     "tags": ["Layout", "SPICE"], "links": []}
-  ],
-  "internships": [
-    {"role": "Hardware Design Intern", "org": "Company Name", "dates": "Jun 2025 – Aug 2025",
-     "points": ["Wrote and verified RTL for a small peripheral block.", "Cut simulation runtime by improving the regression setup.", "Documented the block for the wider team."]}
+    {
+      "title": "Quantum Circuit StateVector ASIC",
+      "context": "Course project · EE671 VLSI Design · Prof. Laxmeesha Somappa",
+      "dates": "Oct 2026 – Nov 2026",
+      "points": [
+        "Designed a parameterizable quantum state-vector ASIC in Verilog RTL, supporting 4, 5 and 6 qubits with six gate operations (H, X, Z, T, CNOT and multi-controlled Z) on 16-bit Q2.14 fixed-point amplitudes.",
+        "Developed a multi-lane architecture with configurable pipeline depth and 1, 2, 4 and 8 parallel lanes, backed by an exact cycle model verified on all 32 recorded runs.",
+        "Verified the RTL bit-exactly against a Python model with Grover's search, taking it through RTL-to-layout implementation: 12 synthesis runs (met 5 ns, 200 MHz) and two layouts that closed timing at 125 MHz.",
+        "Designed the controller FSM (IDLE, ISSUE, WAIT, DONE) with a drain after every batch, and derived the exact cycle model that matched all 32 recorded runs.",
+        "Wrote the micro-architecture specification: the 32-bit instruction format, the ready/done handshake, the lane organization and the 2L-port state array, which fixed the interfaces between the RTL blocks.",
+        "Defined the numerical design: Q2.14 arithmetic with 18-bit and 34-bit intermediates, round-half-up and saturation, and showed that the quantized 1/√2 constant explains about 95% of the observed norm drift."
+      ],
+      "tags": [
+        "Verilog",
+        "VLSI",
+        "ASIC",
+        "Python"
+      ],
+      "links": []
+    },
+    {
+      "title": "Prefetcher and Cache Replacement Design",
+      "context": "Course project · CS683 Advanced Computer Architecture · Prof. Biswabandan Panda",
+      "dates": "Sept 2026 – Nov 2026",
+      "points": [
+        "Built an L1D Stride Pattern Prefetcher that detects repeating non-uniform strides, reaching 1.020/1.017/1.037 speedup vs 1.005/1.000/1.002 for IP-stride, and raising miss coverage from 0.7–5.2% to 20.6–35.5%.",
+        "Designed an instruction-aware L2 replacement policy (I-RRIP) and a dynamic version using leader-set sampling, cutting L2 instruction MPKI by 13–51%, tested on ChampSim.",
+        "Combined SPP with a prefetch-aware dynamic I-RRIP using set dueling, giving the best IPC on all three traces (up to 1.047 speedup, +2.9% over SPP alone)."
+      ],
+      "tags": [
+        "ChampSim",
+        "Prefetching",
+        "Cache replacement"
+      ],
+      "links": []
+    },
+    {
+      "title": "WashU-2 16-bit CPU Architecture",
+      "context": "Course project · EE309 Microprocessors · Prof. V Rajbabu",
+      "dates": "Mar 2026 – Apr 2026",
+      "points": [
+        "Designed and implemented a 16-bit accumulator-based CPU (WashU-2) in VHDL, building a multi-cycle FSM with 17 states to control instruction fetch, decode and execute phases.",
+        "Implemented the core instruction set including arithmetic/logic operations (ADD, AND) and conditional branching (BRPOS), verified through waveform analysis and FSM state tracing.",
+        "Authored self-checking VHDL testbenches with automated pass/fail assertions to validate ALU correctness, memory read/write behavior and branch logic across multiple test cases."
+      ],
+      "tags": [
+        "VHDL",
+        "CPU design",
+        "FSM"
+      ],
+      "links": []
+    },
+    {
+      "title": "Device Driver Development for 8051 Microcontroller",
+      "context": "Course project · EE337 Microprocessors Lab · Prof. Miriyala Indu Vardhan",
+      "dates": "Mar 2026 – Apr 2026",
+      "points": [
+        "Designed and implemented a bare-metal I2C driver stack in embedded C, progressing from direct register manipulation to a fully realized hardware abstraction layer.",
+        "Integrated multiple I2C peripherals (BMP280 sensor, DS1307 RTC) with read/write support and protocol-level error handling via I2C status-register validation.",
+        "Delivered a unified telemetry system displaying calibrated sensor data on LCD and UART serial output, debugging real hardware timing constraints (power-up delays, signal integrity)."
+      ],
+      "tags": [
+        "Embedded C",
+        "8051",
+        "I2C"
+      ],
+      "links": []
+    },
+    {
+      "title": "Zigzag RLE Compression Engine for 8×8 Data Blocks",
+      "context": "Course project · EE214 Digital Circuits Lab · Prof. Mahesh Ashok Bhaganagare",
+      "dates": "Oct 2025 – Nov 2025",
+      "points": [
+        "Designed a zigzag-scan Run-Length Encoding (RLE) compressor/decompressor in VHDL for 8×8 data blocks, using FSM-driven control to traverse matrix data in JPEG-style diagonal order.",
+        "Built a standalone RLE encoder and decoder as independent modules, each handling variable-length run buffers and reconstructing the original matrix from compressed symbol-count pairs.",
+        "Developed an integrated top-level testbench that feeds test data through the full encode-decode pipeline and self-verifies correctness in hardware, driving pass/fail status flags."
+      ],
+      "tags": [
+        "VHDL",
+        "Compression",
+        "Testbench"
+      ],
+      "links": []
+    },
+    {
+      "title": "Verilog Coupled Differential Equation Numerical Solver",
+      "context": "Course project · EE224 Digital Systems · Prof. Debanjan Bhowmik",
+      "dates": "Oct 2025 – Nov 2025",
+      "points": [
+        "Designed a parallel hardware solver on a Field Programmable Gate Array to solve the MaxCut optimization problem by utilizing the Kuramoto model using Intel Quartus Prime Lite Software.",
+        "Implemented the core computational unit in Verilog, integrating a hardware-optimized sin() function (via CORDIC/LUT) and the Euler numerical method for efficient hardware synthesis.",
+        "Developed a comprehensive Verilog testbench to functionally verify the RTL design, validating the solver's final outputs against expected results for various graph instances (e.g., Mobius Ladder) up to 10 nodes."
+      ],
+      "tags": [
+        "Verilog",
+        "FPGA",
+        "CORDIC"
+      ],
+      "links": []
+    },
+    {
+      "title": "Semiconductor Process Design & Simulation",
+      "context": "Purdue University online project · Optimizing atomic-level fabrication recipes and CMOS process flows for high-yield manufacturing",
+      "dates": "Nov 2025 – Dec 2025",
+      "points": [
+        "Simulated Atomic Layer Deposition (ALD) using vfablab, tuning precursor pulse timing (0.1 s) and process temperature (110–140 °C) to achieve conformal, self-limiting High-K dielectric growth.",
+        "Ran wet/dry thermal oxidation recipes at 1000 °C, applying Deal-Grove kinetics to control oxide thickness while minimizing thermal shock and crystal defects.",
+        "Studied Moore's Law scaling limits near the 0.54 nm silicon lattice level and outlined process flows for depletion-mode NMOS, factoring in ion implantation dose and lithography constraints."
+      ],
+      "tags": [
+        "Fabrication",
+        "CMOS",
+        "ALD"
+      ],
+      "links": []
+    },
+    {
+      "title": "Virtual Reality with Convolution",
+      "context": "Course project · EE229 Signal Processing 1 · Advisor: Prof. Preeti Rao",
+      "dates": "Aug 2025 – Sept 2025",
+      "points": [
+        "Coded a virtual reality audio system by applying discrete convolution to a dry audio source with Binaural Room Impulse Responses (BRIR), simulating immersive acoustic environments in Scilab and Python.",
+        "Implemented a discrete convolution algorithm from scratch and validated its accuracy against Python's np.convolve, achieving a maximum absolute error of 4.441 × 10⁻¹⁶.",
+        "Visualized the acoustic impact of convolution by isolating and plotting the pure “Room Sound” (reverberations) via waveform subtraction between the original and convolved audio signals, conducting amplitude analysis."
+      ],
+      "tags": [
+        "Signal processing",
+        "Python",
+        "Scilab"
+      ],
+      "links": []
+    }
   ]
 }
