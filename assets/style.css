@@ -53,7 +53,8 @@ p{margin:0 0 .8rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:1.2rem 1.6rem}
 .grid p{color:var(--muted);margin:.25rem 0 0;font-size:.9rem}
 #courses-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(22rem,1fr));gap:0 2.2rem}
-#projects-list,#internships-list,#articles-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(24rem,1fr));gap:0 2.2rem}
+#internships-list,#articles-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(24rem,1fr));gap:0 2.2rem}
+#projects-list{max-width:62rem}
 .group{margin-bottom:1.3rem}
 .group>h3{font:500 .85rem var(--sans);color:var(--muted);margin-bottom:.3rem}
 .row{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0;border-bottom:1px solid var(--line)}
@@ -65,6 +66,7 @@ p{margin:0 0 .8rem}
 .head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
 .tags{display:flex;gap:.35rem;flex-wrap:wrap;margin:.2rem 0 .3rem}
 .tags span{font:400 .72rem var(--sans);background:var(--tint);color:var(--muted);padding:.08rem .5rem;border-radius:3px}
+.sub{margin:.15rem 0 .4rem!important}
 .item .links{margin-top:.2rem}
 .item .links a{padding:0;border:0;color:var(--accent)}
 .item h3 a{color:var(--ink);text-decoration:none}
@@ -93,6 +95,6 @@ body.collapsed footer{padding-left:clamp(4rem,6vw,5rem)}
   .hero{padding-top:4.2rem}.post{padding-top:4.2rem}
   .sidebar{box-shadow:0 0 30px rgba(0,0,0,.25)}
   body:not(.collapsed) .scrim{display:block;position:fixed;inset:0;z-index:15;background:rgba(0,0,0,.35)}
-  #courses-list,#projects-list,#internships-list,#articles-list{grid-template-columns:1fr}
+  #courses-list,#internships-list,#articles-list{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sidebar,main,footer{transition:none}}
