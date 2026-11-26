@@ -1,4 +1,4 @@
-# Krish Vedak: research website
+# Krish Vedak: Website
 
 ## Publish on GitHub Pages
 1. Create a repo named `your-username.github.io` (or any name).
